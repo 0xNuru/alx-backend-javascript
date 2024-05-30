@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-unused-vars */
 export default class HolbertonCourse {
   constructor(name, length, students) {
     if (typeof name !== 'string') {
@@ -14,34 +12,31 @@ export default class HolbertonCourse {
     students.forEach((student) => {
       if (typeof student !== 'string') throw TypeError('student must be a String');
     });
-
     this._name = name;
     this._length = length;
     this._students = students;
   }
 
-  // name getter
-  name() {
+  get name() {
     return this._name;
-  }
-
-  // name setter
-  setname(newName) {
-    if (typeof newName !== 'string') throw TypeError('name must be a String');
-    this._name = newName;
   }
 
   get length() {
     return this._length;
   }
 
+  get students() {
+    return this._students;
+  }
+
+  set name(newName) {
+    if (typeof newName !== 'string') throw TypeError('name must be a String');
+    this._name = newName;
+  }
+
   set length(newLength) {
     if (typeof newLength !== 'number') throw TypeError('length must be a Number');
     this._length = newLength;
-  }
-
-  get students() {
-    return this._students;
   }
 
   set students(newStudents) {
